@@ -6,6 +6,7 @@ const router = express.Router();
 
 const { mysqlConfig, jwtSecret } = require("../config");
 
+//Registration
 router.post("/register", async (req, res) => {
   if (!req.body.email || !req.body.password) {
     return res.status(400).send({ error: "Insufficient data provided" });
@@ -34,6 +35,7 @@ router.post("/register", async (req, res) => {
   }
 });
 
+//Login
 router.post("/login", async (req, res) => {
   if (!req.body.email || !req.body.password) {
     return res.status(400).send({ error: "Insufficient data provided" });
